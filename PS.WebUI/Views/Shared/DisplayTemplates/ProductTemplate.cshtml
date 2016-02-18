@@ -1,0 +1,45 @@
+﻿@model Product
+
+@Html.HiddenFor(x => x.Id)
+<div class="row">
+
+	<div class="col-xs-12 col-md-3">
+		@Html.LabelFor(x => x.Image, new { @for = "Image_container", @class = "control-label" })
+		<div id="Image_container" class="thumbnail">
+			@if (Model.Image != null)
+			{
+				<img src="@Url.Action("GetImage", "Product", new {id = Model.Id})" class="img-responsive" />
+			}
+		</div>
+	</div>
+
+	<div class="col-xs-12 col-md-9">
+
+		<div class="form-group">
+			@Html.LabelFor(x => x.Name, new { @for = "Name", @class = "control-label" })
+			<p id="Name" class="form-control-static">@Html.DisplayTextFor(x => x.Name)</p>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(x => x.Price, new { @for = "Price", @class = "control-label" })
+			<p id="Price" class="form-control-static">@Html.DisplayTextFor(x => x.Price)</p>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(x => x.CategoryId, new { @for = "Category", @class = "control-label" })
+			<p id="Category" class="form-control-static">@Html.DisplayTextFor(x => x.Category.Name)</p>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(x => x.CountryId, new { @for = "Country", @class = "control-label" })
+			<p id="Country" class="form-control-static">@Html.DisplayTextFor(x => x.Country.Name)</p>
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(x => x.Description, new { @for = "Description", @class = "control-label" })
+			<p id="Description" class="form-control-static">@Html.DisplayTextFor(x => x.Description)</p>
+		</div>
+
+	</div>
+
+</div>

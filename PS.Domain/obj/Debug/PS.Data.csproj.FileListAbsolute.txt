@@ -1,0 +1,4 @@
+C:\Study\PortfolioShop\PS.Data\bin\Debug\PS.Data.dll
+C:\Study\PortfolioShop\PS.Data\bin\Debug\PS.Data.pdb
+C:\Study\PortfolioShop\PS.Data\obj\Debug\PS.Data.dll
+C:\Study\PortfolioShop\PS.Data\obj\Debug\PS.Data.pdb

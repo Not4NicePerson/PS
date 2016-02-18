@@ -1,0 +1,51 @@
+﻿@model PS.WebUI.Models.ProductModel
+@{
+	ViewBag.Title = Resources.Products;
+}
+
+@helper CreateAddToCartButton(Product item)
+{
+	<a href="@Url.Action("AddToCart", "Cart", new {item.Id})" class="btn btn-warning btn-sm pull-right">
+		<i class="glyphicon glyphicon-plus"></i>
+		@Resources.AddToCart
+	</a>
+}
+
+<ul class="list-unstyled">
+	@foreach (var item in Model.Products)
+	{
+		<li>
+			<div class="row">
+
+				<div class="col-xs-12 col-md-2">
+					<a href="@Url.Action("Details", new {item.Id})">
+						@if (item.Image != null)
+						{
+							<img src="@Url.Action("GetImage", "Product", new {item.Id})" style="width: 100%;" class="img-thumbnail" />
+						}
+					</a>
+				</div>
+
+				<div class="col-xs-12 col-md-8">
+					<a href="@Url.Action("Details", new {item.Id})">
+						<h4>@item.Name</h4>
+						<p>@item.Description</p>
+					</a>
+				</div>
+
+				<div class="col-xs-12 col-md-2 pull-right">
+					<span class="pull-right">@item.Price.ToString("C0")</span>
+					<br />
+					@CreateAddToCartButton(item)
+				</div>
+			</div>
+			<hr />
+		</li>
+	}
+
+</ul>
+
+@Html.PageLinks(x => Url.Action("List", new
+{
+	page = x
+}), Model.PageInfoModel)

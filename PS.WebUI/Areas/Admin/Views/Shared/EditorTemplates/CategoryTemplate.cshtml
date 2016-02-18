@@ -1,0 +1,12 @@
+﻿@model Category
+
+@Html.HiddenFor(x => x.Id)
+<div class="row">
+	<div class="col-xs-12 col-md-6">
+		<div class="form-group">
+			@Html.LabelFor(x => x.Name, new { @for = "Name", @class = "control-label" })
+			@Html.TextBoxFor(x => x.Name, new { id = "Name", @class = "form-control" })
+			@Html.ValidationSummary()
+		</div>
+	</div>
+</div>

@@ -1,0 +1,43 @@
+﻿@model PS.WebUI.Areas.Admin.Models.UserModel
+@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+	<title>Login</title>
+	@Scripts.Render("~/bundles/General")
+</head>
+<body>
+
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12 col-md-4 col-md-offset-4">
+			@using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @class = "form-horizontal" }))
+			{
+				<div class="form-horizontal">
+					<h3>@Resources.SignIn</h3>
+					<hr />
+
+					@Html.TextBoxFor(x => x.Name, new { @class = "form-control", placeholder = Resources.UserName })
+					<br />
+					@Html.PasswordFor(x => x.Password, new { @class = "form-control", placeholder = Resources.Password })
+
+					<hr />
+					<input type="submit" class="form-control" value="@Resources.Enter"/>
+				</div>
+			}
+			<p>
+				@Html.ValidationSummary()
+			</p>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>
+
+@Styles.Render("~/bundles/General-css")

@@ -1,0 +1,21 @@
+﻿@model PS.WebUI.Areas.Admin.Models.ProductModel
+
+@section Actions {
+	<li>
+		<a href="@Url.Action("List")">
+			<i class="glyphicon glyphicon-chevron-left"></i>
+			@Resources.MoveBack
+		</a>
+	</li>
+}
+
+@using (Html.BeginForm("Update", "Product", FormMethod.Post,
+	new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+{
+	@Html.EditorFor(x => x, "ProductModelTemplate")
+	<div class="row">
+		<button type="submit" class="btn col-xs-12 col-md-offset-3 btn-default">
+			@Resources.Update
+		</button>
+	</div>
+}

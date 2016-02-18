@@ -1,0 +1,21 @@
+﻿@model Category
+
+@section Actions {
+	<li>
+		<a href="@Url.Action("List")">
+			<i class="glyphicon glyphicon-chevron-left"></i>
+			@Resources.MoveBack
+		</a>
+	</li>
+}
+
+@using (Html.BeginForm("Create", "Category", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+	@Html.EditorFor(x => x, "CategoryTemplate")
+	<div class="row">
+		<button type="submit" class="btn btn-default">
+			@Resources.Create
+		</button>
+	</div>
+}
+

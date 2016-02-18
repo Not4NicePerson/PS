@@ -1,0 +1,21 @@
+﻿@model Product
+
+@Html.DisplayFor(x => x, "ProductTemplate")
+
+<div class="row">
+
+	<div class="col-xs-6 col-md-3">
+		<a href="@Url.Action("AddToCart", "Cart", new {Model.Id})" class="btn btn-warning">
+			<i class="glyphicon glyphicon-plus"></i>
+			@Resources.AddToCart
+		</a>
+	</div>
+
+	<div class="col-xs-6 col-md-3">
+		<a href="@Url.Action("List", "Product")" class="btn btn-success">
+			<i class="glyphicon glyphicon-shopping-cart"></i>
+			@Resources.ContinueShopping
+		</a>
+	</div>
+
+</div>

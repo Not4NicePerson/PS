@@ -1,0 +1,10 @@
+C:\Study\PortfolioShop\PS.Resources\bin\Debug\PS.Resources.dll
+C:\Study\PortfolioShop\PS.Resources\bin\Debug\PS.Resources.pdb
+C:\Study\PortfolioShop\PS.Resources\bin\Debug\ru\PS.Resources.resources.dll
+C:\Study\PortfolioShop\PS.Resources\obj\Debug\PS.Resources.Resources.resources
+C:\Study\PortfolioShop\PS.Resources\obj\Debug\PS.Resources.Resources.ru.resources
+C:\Study\PortfolioShop\PS.Resources\obj\Debug\PS.Resources.csproj.GenerateResource.Cache
+C:\Study\PortfolioShop\PS.Resources\obj\Debug\ru\PS.Resources.resources.dll
+C:\Study\PortfolioShop\PS.Resources\obj\Debug\PS.Resources.dll
+C:\Study\PortfolioShop\PS.Resources\obj\Debug\PS.Resources.pdb
+C:\Study\PortfolioShop\PS.Resources\obj\Debug\PS.Resources.csprojResolveAssemblyReference.cache

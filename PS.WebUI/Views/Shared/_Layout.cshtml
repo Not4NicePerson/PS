@@ -1,0 +1,73 @@
+﻿@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+	<title>@ViewBag.Title</title>
+	@Scripts.Render("~/bundles/General")
+</head>
+<body>
+
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a href="@Url.Action("List", "Product")" class="navbar-brand">@Resources.SiteName</a>
+			</div>
+
+			<ul class="nav navbar-nav navbar-right">
+
+				<li>
+					@Html.Action("Summary", "Cart")
+				</li>
+
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						<i class="glyphicon glyphicon-collapse-down"></i>
+						@Resources.Language
+						<span class="caret"></span>
+					</a>
+
+					<ul class="dropdown-menu">
+						<li>
+							@Html.RouteLink("ru", new {action = "ChangeCulture", controller = "Filter", lang = "ru"})
+						</li>
+						<li>
+							@Html.RouteLink("en", new {action = "ChangeCulture", controller = "Filter", lang = "en"})
+						</li>
+					</ul>
+
+				</li>
+
+				<li>
+					<a href="@Url.Action("Index", "Manage", new {area = "Admin"})">
+						<i class="glyphicon glyphicon-log-in"></i>
+						@Resources.MoveToAdmin
+					</a>
+				</li>
+
+			</ul>
+
+		</div>
+	</nav>
+
+	<div class="panel-body">
+		<div class="row">
+			<div class="col-md-3 col-sm-12">
+				@Html.Partial("_FilterLayout")
+			</div>
+			<div class="col-md-9 col-sm-12">
+				@RenderBody()
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
+
+@RenderSection("Styles", false)
+@RenderSection("Scripts", false)
+@Styles.Render("~/bundles/General-css")

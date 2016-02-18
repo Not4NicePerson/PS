@@ -1,0 +1,73 @@
+﻿@model Cart
+@{
+	ViewBag.Title = Resources.YourCart;
+}
+
+@helper RemoveFromCartButton(Product item)
+{
+	<a href="@Url.Action("RemoveFromCart", "Cart", new {item.Id})" class="btn btn-warning btn-sm pull-right">
+		<i class="glyphicon glyphicon-trash"></i>
+		@Resources.RemoveFromCart
+	</a>
+}
+
+<div class="table-responsive">
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>@Resources.ProductName</th>
+				<th>@Resources.CategoryName</th>
+				<th>@Resources.CountryName</th>
+				<th>@Resources.ProductDescription</th>
+				<th>@Resources.Quantity</th>
+				<th>@Resources.ProductPrice</th>
+				<th>@Resources.SubTotal</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model.Lines)
+			{
+				<tr>
+					<td>@item.Product.Name</td>
+					<td>@item.Product.Category.Name</td>
+					<td>@item.Product.Country.Name</td>
+					<td>@item.Product.Description</td>
+					<td>@item.Quantity</td>
+					<td>@item.Product.Price.ToString("C0")</td>
+					<td>@((item.Quantity * item.Product.Price).ToString("C0"))</td>
+					<td>@RemoveFromCartButton(item.Product)</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>
+
+
+
+<div class="row">
+
+	<div class="col-xs-12 col-md-8">
+		<h3>
+			@Resources.Total :
+			@Model.ComputeTotalValue().ToString("C0")
+		</h3>
+	</div>
+
+	<div class="col-xs-6 col-md-2">
+		<a href="@Url.Action("Checkout", "Cart")" class="btn btn-warning">
+			<i class="glyphicon glyphicon-shopping-cart"></i>
+			@Resources.CheckoutNow
+		</a>
+	</div>
+
+	<div class="col-xs-6 col-md-2">
+		<a href="@Url.Action("List", "Product")" class="btn btn-success pull-right">
+			<i class="glyphicon glyphicon-th-list"></i>
+			@Resources.ContinueShopping
+		</a>
+	</div>
+</div>
+
+

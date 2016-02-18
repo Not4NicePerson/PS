@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Country>
+
+@helper CreateDeleteButton(BaseEntity item)
+{
+	<a href="@Url.Action("Delete", new { item.Id })" class="btn btn-warning btn-sm">
+		<i class="glyphicon glyphicon-trash"></i>
+		@Resources.Delete
+	</a>
+}
+
+@helper CreateUpdateButton(BaseEntity item)
+{
+	<a href="@Url.Action("Update", new {item.Id})" class="btn btn-success btn-sm">
+		<i class="glyphicon glyphicon-edit"></i>
+		@Resources.Update
+	</a>
+}
+
+@section Actions{
+	<li>
+		<a href="@Url.Action("Create")">
+			<i class="glyphicon glyphicon-plus"></i>
+			@Resources.Create
+		</a>
+		
+	</li>
+	<li>
+		<a href="@Url.Action("Index", "Manage")">
+			<i class="glyphicon glyphicon-chevron-left"></i>
+			@Resources.MoveBack
+		</a>
+
+	</li>
+}
+
+<div class="table-responsive">
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>@Resources.UniqueKey</th>
+				<th>@Resources.CategoryName</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>@item.Id</td>
+					<td>@item.Name</td>
+					<td>
+						<div class="pull-right">
+							@CreateUpdateButton(item)
+							@CreateDeleteButton(item)
+						</div>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>

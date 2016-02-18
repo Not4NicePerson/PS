@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Category>
+@{
+	int? selectedId = ViewBag.SelectedCategoryId;
+}
+
+<div id="CategoryFilter" class="panel-collapse collapsing">
+	<ul class="nav nav-pills nav-stacked">
+		<li class="@(selectedId == null ? "active" : "")">
+			@Html.RouteLink(@Resources.None, new
+			{
+				action = "Category",
+				controller = "Filter"
+			})
+		</li>
+
+		@foreach (var item in Model)
+		{
+			<li class="@(selectedId == item.Id ? "active" : "")">
+				@Html.RouteLink(item.Name, new
+				{
+					action = "Category",
+					controller = "Filter",
+					id = item.Id
+				})
+			</li>
+		}
+	</ul>
+
+</div>

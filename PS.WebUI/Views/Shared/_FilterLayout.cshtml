@@ -1,0 +1,19 @@
+﻿<ul class="nav nav-pills nav-stacked">
+
+	<li>
+		<a href="#CategoryFilter" data-toggle="collapse">
+			<i class="glyphicon glyphicon-chevron-down"></i>
+			@Resources.Categories
+		</a>
+		@Html.Action("CategoryList", "Filter")
+	</li>
+
+	<li>
+		<a href="#CountryFilter" data-toggle="collapse">
+			<i class="glyphicon glyphicon-chevron-down"></i>
+			@Resources.Countries
+		</a>
+		@Html.Action("CountryList", "Filter")
+	</li>
+
+</ul>

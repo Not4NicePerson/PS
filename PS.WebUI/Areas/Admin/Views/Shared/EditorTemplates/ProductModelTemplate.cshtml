@@ -1,0 +1,54 @@
+﻿@model PS.WebUI.Areas.Admin.Models.ProductModel
+
+@Html.HiddenFor(x => x.Product.Id)
+<div class="row">
+
+	<div class="col-xs-12 col-md-3">
+
+		@Html.LabelFor(x => x.Product.Image, new { @for = "Image_container", @class = "control-label" })
+		<div id="Image_container" class="thumbnail">
+			@if (Model.Product.Image != null)
+			{
+				<img src="@Url.Action("GetImage", "Product", new {id = Model.Product.Id})" class="img-responsive"/>
+			}
+		</div>
+
+		<input id="upload_file" name="file" type="file" />
+
+		<div class="form-group">
+			@Html.ValidationSummary()
+		</div>
+	</div>
+
+	<div class="col-xs-12 col-md-6">
+
+		<div class="form-group">
+			@Html.LabelFor(x => x.Product.Name, new { @for = "Name", @class = "control-label" })
+			@Html.TextBoxFor(x => x.Product.Name, new { id = "Name", @class = "form-control" })
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(x => x.Product.CategoryId, new { @for = "Category", @class = "control-label" })
+			@Html.DropDownListFor(x => x.Product.CategoryId, Model.CategoryList,
+				new { id = "Category", @class = "form-control" })
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(x => x.Product.CountryId, new { @for = "Country", @class = "control-label" })
+			@Html.DropDownListFor(x => x.Product.CountryId, Model.CountryList,
+				new { id = "Country", @class = "form-control" })
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(x => x.Product.Price, new { @for = "Price", @class = "control-label" })
+			@Html.TextBoxFor(x => x.Product.Price, new { id = "Price", @class = "form-control" })
+		</div>
+
+		<div class="form-group">
+			@Html.LabelFor(x => x.Product.Description, new { @for = "Description", @class = "control-label" })
+			@Html.TextAreaFor(x => x.Product.Description, new { id = "Description", @class = "form-control" })
+		</div>
+
+	</div>
+
+</div>
